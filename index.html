@@ -246,14 +246,22 @@
       .hero-grid { grid-template-columns:1fr; gap:36px; }
       .hero-art { max-width:560px; }
       .hero { padding:45px 0 54px; }
-    }
+    }.brand-mark {
+  display: block;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
 </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#inicio" aria-label="Coleção Memórias e Paixões">
-        <span class="brand-mark">f</span>
+      <img class="brand-mark" src="imagens/memorias-e-paixoes/logosemfundo.png" alt="Flora Estúdio Criativo">
         <span><span class="brand-name">Flora Estúdio Criativo</span><span class="brand-sub">Coleção Memórias e Paixões</span></span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
