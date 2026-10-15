@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e9">
+  <meta name="description" content="Flora Estúdio Criativo — pinturas artísticas, obras autorais, peças decorativas e projetos especiais.">
+  <title>Flora Estúdio Criativo — Arte que habita espaços</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f1e9;
+      --ink: #242720;
+      --muted: #77776d;
+      --line: #d9d4c9;
+      --olive: #687257;
+      --rust: #b96346;
+      --white: #fffdf8;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --max: 1280px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .wrap { width: min(var(--max), calc(100% - 64px)); margin: 0 auto; }
+    .eyebrow { font-size: 10px; letter-spacing: .19em; text-transform: uppercase; color: var(--muted); }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(245,241,233,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(217,212,201,.75); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 220px; }
+    .brand-mark { width: 35px; height: 35px; border: 1px solid var(--olive); border-radius: 50% 50% 48% 52%; display: grid; place-items: center; color: var(--olive); font: italic 24px var(--serif); transform: rotate(-8deg); }
+    .brand-name { font: 17px var(--serif); letter-spacing: .01em; }
+    .brand-sub { display: block; margin-top: 3px; font: 8px var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: flex; gap: clamp(18px, 3vw, 42px); align-items: center; }
+    .nav-links a { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-cta { padding: 12px 17px; border: 1px solid var(--ink); font-size: 10px !important; letter-spacing: .12em !important; }
+    .menu-toggle { display: none; background: none; border: 1px solid var(--line); padding: 9px 12px; color: var(--ink); }
+    .hero { padding: 54px 0 72px; }
+    .hero-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 25px; }
+    .hero-kicker { display: flex; align-items: center; gap: 10px; }
+    .dot { width: 7px; height: 7px; background: var(--rust); border-radius: 50%; }
+    .hero-index { color: var(--muted); font-size: 10px; letter-spacing: .13em; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 5.5%; align-items: center; }
+    .hero-copy { padding: 20px 0 20px 5%; }
+    h1 { font: clamp(48px, 6.3vw, 91px)/.99 var(--serif); letter-spacing: -.045em; margin: 0 0 26px; max-width: 680px; }
+    h1 em { color: var(--olive); font-weight: 400; }
+    .hero-copy p { color: #62645a; font-size: 14px; line-height: 1.85; max-width: 410px; margin: 0 0 30px; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 14px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 9px; transition: gap .2s; }
+    .link-arrow:hover { gap: 21px; }
+    .arrow { font-size: 17px; line-height: 10px; }
+    .hero-art { position: relative; min-height: 550px; }
+    .hero-image { height: 550px; width: 86%; margin-left: auto; background: #c6b8a1; }
+    .hero-image img { height: 100%; }
+    .hero-note { position: absolute; bottom: 26px; left: 0; background: var(--paper); padding: 18px 22px; max-width: 235px; }
+    .hero-note strong { display: block; font: 20px/1.15 var(--serif); font-weight: 400; }
+    .hero-note span { display: block; color: var(--muted); margin-top: 8px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-stamp { position: absolute; top: 25px; left: 0; width: 94px; height: 94px; border: 1px solid var(--olive); color: var(--olive); border-radius: 50%; display: grid; place-items: center; text-align: center; font: italic 14px/1.25 var(--serif); transform: rotate(-12deg); background: var(--paper); }
+    .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; overflow: hidden; }
+    .marquee-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; white-space: nowrap; color: var(--olive); font: italic 19px var(--serif); }
+    .marquee-inner span:nth-child(even) { color: var(--rust); font: 11px var(--sans); }
+    section { padding: 105px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 40px; }
+    .section-head h2 { margin: 10px 0 0; font: clamp(36px, 4.5vw, 59px)/1.05 var(--serif); letter-spacing: -.035em; }
+    .section-head p { max-width: 330px; color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .filter { border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 10px 15px; border-radius: 30px; font-size: 10px; letter-spacing: .07em; cursor: pointer; transition: all .2s; }
+    .filter:hover, .filter.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 34px 22px; }
+    .work { grid-column: span 4; min-width: 0; }
+    .work:nth-child(3n + 2) { margin-top: 48px; }
+    .work-image { position: relative; overflow: hidden; background: #ded5c5; aspect-ratio: 4/5; }
+    .work:nth-child(3n + 2) .work-image { aspect-ratio: 4/5.3; }
+    .work:nth-child(3n) .work-image { aspect-ratio: 4/4.6; }
+    .work-image img { height: 100%; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .work:hover .work-image img { transform: scale(1.04); }
+    .work-num { position: absolute; left: 13px; top: 13px; background: var(--paper); color: var(--ink); padding: 7px 9px; font-size: 9px; letter-spacing: .1em; }
+    .work-caption { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding-top: 15px; }
+    .work-caption h3 { font: 22px var(--serif); font-weight: 400; margin: 0 0 5px; }
+    .work-caption p { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+    .work-arrow { font-size: 19px; color: var(--olive); }
+    .work[hidden] { display: none; }
+    .statement { background: #e7e5d9; }
+    .statement-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 10%; align-items: center; }
+    .statement-image { position: relative; }
+    .statement-image img { height: 500px; }
+    .image-caption { position: absolute; bottom: -14px; right: -18px; background: var(--rust); color: var(--white); padding: 15px 18px; font: italic 17px var(--serif); }
+    .statement-copy { padding: 20px 0; }
+    .statement-copy h2 { font: clamp(39px, 4.6vw, 64px)/1.05 var(--serif); letter-spacing: -.04em; margin: 15px 0 25px; }
+    .statement-copy h2 em { color: var(--olive); }
+    .statement-copy p { color: #65675d; font-size: 13px; line-height: 1.95; max-width: 500px; }
+    .statement-copy .link-arrow { margin-top: 15px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: center; }
+    .about-copy h2 { font: clamp(39px, 4.6vw, 63px)/1.05 var(--serif); letter-spacing: -.04em; margin: 14px 0 25px; }
+    .about-copy p { max-width: 470px; font-size: 13px; line-height: 1.95; color: #65675d; }
+    .about-image { position: relative; }
+    .about-image img { height: 480px; }
+    .about-image:before { content: ""; position: absolute; width: 48%; height: 45%; border: 1px solid var(--rust); top: -14px; left: -14px; pointer-events: none; }
+    .about-facts { display: flex; gap: 34px; margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .fact strong { display: block; font: 27px var(--serif); font-weight: 400; }
+    .fact span { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-top: 5px; }
+    .contact { background: var(--ink); color: var(--paper); }
+    .contact .eyebrow { color: #b7b8a8; }
+    .contact-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 12%; align-items: start; }
+    .contact h2 { font: clamp(44px, 5.8vw, 76px)/1.02 var(--serif); letter-spacing: -.04em; margin: 15px 0 24px; }
+    .contact h2 em { color: #c5c9b2; }
+    .contact-intro { color: #bfc0b6; font-size: 13px; line-height: 1.9; max-width: 440px; }
+    .contact-links { border-top: 1px solid #505249; }
+    .contact-link { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 21px 0; border-bottom: 1px solid #505249; }
+    .contact-link span:first-child { font-size: 10px; text-transform: uppercase; letter-spacing: .13em; color: #bfc0b6; }
+    .contact-link strong { display: block; font: 21px var(--serif); font-weight: 400; margin-top: 6px; }
+    .contact-link .arrow { color: #c5c9b2; }
+    .contact-link:hover strong { color: #c5c9b2; }
+    .contact-note { margin-top: 28px; font-size: 10px; line-height: 1.8; color: #92958a; }
+    footer { background: var(--ink); color: #bfc0b6; border-top: 1px solid #505249; padding: 23px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 9px; letter-spacing: .08em; }
+    .footer-brand { color: var(--paper); font: 17px var(--serif); }
+    .back-top { border-bottom: 1px solid #77796f; padding-bottom: 4px; }
+    .notice { position: fixed; z-index: 50; bottom: 18px; left: 50%; transform: translate(-50%, 20px); background: var(--ink); color: var(--paper); padding: 12px 18px; font-size: 11px; opacity: 0; pointer-events: none; transition: .25s; box-shadow: 0 8px 30px #0002; }
+    .notice.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .collection-intro { background: #eeeadf; }
+    .collection-intro-grid { display:grid; grid-template-columns:.72fr 1.28fr; gap:10%; align-items:start; }
+    .collection-intro h2 { font:clamp(42px,5.2vw,72px)/1 var(--serif); letter-spacing:-.045em; margin:14px 0 0; }
+    .collection-intro h2 em { color:var(--rust); }
+    .collection-story { font-size:13px; line-height:1.95; color:#62645a; }
+    .collection-story p { margin:0 0 17px; }
+    .collection-quote { border-left:2px solid var(--rust); padding:3px 0 3px 20px; margin:26px 0; font:italic 23px/1.45 var(--serif); color:var(--ink); }
+    .collection-artworks { display:grid; grid-template-columns:repeat(12,1fr); gap:42px 22px; }
+    .collection-art { grid-column:span 4; }
+    .collection-art:nth-child(3n + 2) { margin-top:42px; }
+    .collection-art:nth-child(6) { grid-column:span 8; }
+    .collection-art:nth-child(6) .collection-art-image { aspect-ratio: 16/9; }
+    .collection-art-image { background:#e2ddd2; aspect-ratio:4/5; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .collection-art-image img { width:100%; height:100%; object-fit:contain; }
+    .collection-art:nth-child(6) .collection-art-image img { object-fit:contain; }
+    .collection-art h3 { font:25px/1.15 var(--serif); font-weight:400; margin:15px 0 6px; }
+    .collection-art p { margin:0; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.1em; }
+    .collection-pricing { background:#e7e5d9; }
+    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:10%; align-items:start; }
+    .pricing-grid h2 { font:clamp(38px,4.6vw,62px)/1.04 var(--serif); letter-spacing:-.04em; margin:12px 0 20px; }
+    .pricing-grid .intro { color:#62645a; font-size:13px; line-height:1.9; }
+    .price-table { width:100%; border-collapse:collapse; margin-top:20px; }
+    .price-table th,.price-table td { padding:15px 0; border-bottom:1px solid #cbcabe; text-align:left; }
+    .price-table th { font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+    .price-table td { font-size:13px; }
+    .price-table td:last-child { text-align:right; font:22px var(--serif); }
+    .frame-options { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; }
+    .frame-chip { border:1px solid #bdb9ad; padding:9px 12px; border-radius:30px; font-size:10px; display:inline-flex; align-items:center; gap:7px; }
+    .frame-dot { width:11px; height:11px; border-radius:50%; display:inline-block; border:1px solid #999; }
+    .price-note { font-size:10px; line-height:1.8; color:#65675d; margin-top:18px; }
+    .reproduction-note { border-top:1px solid #cbcabe; margin-top:26px; padding-top:23px; font:italic 19px/1.5 var(--serif); }
+    .collection-contact { display:inline-flex; margin-top:18px; background:var(--ink); color:var(--paper); padding:14px 18px; font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+
+    @media (max-width: 850px) {
+      .wrap { width: min(100% - 40px, var(--max)); }
+      .nav { min-height: 70px; }
+      .brand { min-width: unset; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 69px; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 22px 20px 26px; flex-direction: column; align-items: stretch; gap: 22px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 4px 0; }
+      .nav-cta { text-align: center; }
+      .hero { padding: 34px 0 52px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-copy { padding: 12px 0; }
+      h1 { max-width: 620px; font-size: clamp(51px, 10vw, 80px); }
+      .hero-art { min-height: 440px; }
+      .hero-image { height: 440px; width: 87%; }
+      .hero-stamp { left: 2px; width: 78px; height: 78px; font-size: 12px; }
+      section { padding: 75px 0; }
+      .section-head { align-items: start; flex-direction: column; margin-bottom: 30px; }
+      .section-head p { max-width: 470px; }
+      .work { grid-column: span 6; }
+      .work:nth-child(3n + 2) { margin-top: 0; }
+      .work:nth-child(even) { margin-top: 36px; }
+      .collection-intro-grid, .pricing-grid { grid-template-columns:1fr; gap:28px; }
+      .collection-art { grid-column:span 6; }
+      .collection-art:nth-child(3n + 2) { margin-top:0; }
+      .collection-art:nth-child(even) { margin-top:30px; }
+      .collection-art:nth-child(6) { grid-column:span 12; }
+      .statement-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 42px; }
+      .statement-image { width: 83%; }
+      .statement-image img { height: 420px; }
+      .statement-copy { padding: 0; }
+      .about-image { width: 88%; margin-left: auto; }
+      .about-image img { height: 420px; }
+      .contact-grid { gap: 38px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: calc(100% - 32px); }
+      .brand-mark { width: 31px; height: 31px; font-size: 21px; }
+      .brand-name { font-size: 15px; }
+      .brand-sub { font-size: 7px; }
+      .hero-top { align-items: start; flex-direction: column; }
+      h1 { font-size: clamp(47px, 13vw, 66px); }
+      .hero-copy p { font-size: 13px; }
+      .hero-art { min-height: 360px; }
+      .hero-image { height: 360px; width: 88%; }
+      .hero-note { bottom: 13px; padding: 14px 15px; max-width: 205px; }
+      .hero-note strong { font-size: 17px; }
+      .hero-stamp { top: 15px; width: 68px; height: 68px; font-size: 10px; }
+      .marquee-inner { justify-content: flex-start; overflow: hidden; font-size: 16px; }
+      .portfolio-grid { gap: 26px 12px; }
+      .work { grid-column: span 6; }
+      .work-image, .work:nth-child(3n + 2) .work-image, .work:nth-child(3n) .work-image { aspect-ratio: 3/4; }
+      .work-caption h3 { font-size: 17px; }
+      .work-caption p { font-size: 8px; line-height: 1.5; }
+      .work-num { left: 8px; top: 8px; padding: 6px; font-size: 8px; }
+      .collection-artworks { gap:28px 12px; }
+      .collection-art { grid-column:span 6; }
+      .collection-art h3 { font-size:19px; }
+      .collection-art:nth-child(6) { grid-column:span 12; }
+      .collection-quote { font-size:20px; }
+      .statement-image { width: 88%; }
+      .statement-image img, .about-image img { height: 360px; }
+      .image-caption { right: -12px; font-size: 14px; }
+      .about-facts { gap: 20px; }
+      .fact strong { font-size: 23px; }
+      .footer-inner { align-items: start; flex-direction: column; gap: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition-duration: .01ms !important; } }
+  
+
+    .hero { padding: 70px 0 78px; }
+    .hero-grid { grid-template-columns: 1fr 1fr; }
+    .hero-copy h1 { font: clamp(46px, 6.6vw, 88px)/.98 var(--serif); letter-spacing:-.055em; margin:20px 0 24px; }
+    .hero-copy h1 em { color:var(--rust); font-weight:400; }
+    .hero-copy p { max-width:440px; color:#65675d; font-size:14px; line-height:1.9; }
+    .hero-art { position:relative; }
+    .hero-image { background:#e2ddd2; aspect-ratio:4/5; overflow:hidden; }
+    .hero-image img { width:100%; height:100%; object-fit:contain; }
+    .hero-note { display:flex; flex-direction:column; gap:5px; margin-top:12px; font-size:10px; color:var(--muted); }
+    .hero-note strong { color:var(--ink); font-weight:500; }
+    .collection-contact { text-decoration:none; }
+    .contact-links { display:flex; flex-direction:column; }
+    .contact-link { text-decoration:none; }
+    .social-note { font-size:10px; line-height:1.7; color:var(--muted); margin-top:18px; }
+    @media (max-width:850px) {
+      .hero-grid { grid-template-columns:1fr; gap:36px; }
+      .hero-art { max-width:560px; }
+      .hero { padding:45px 0 54px; }
+    }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Coleção Memórias e Paixões">
+        <span class="brand-mark">f</span>
+        <span><span class="brand-name">Flora Estúdio Criativo</span><span class="brand-sub">Coleção Memórias e Paixões</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#colecao">A coleção</a>
+        <a href="#obras">As obras</a>
+        <a href="#reproducoes">Reproduções</a>
+        <a href="#contato">Contato</a>
+        <a class="nav-cta" href="#contato">Consultar uma obra ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <div class="hero-top">
+          <div class="hero-kicker eyebrow"><span class="dot"></span> Coleção autoral · Flora</div>
+          <div class="hero-index">MEMÓRIAS E PAIXÕES</div>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Arte, liberdade e lembranças</div>
+            <h1>Memórias <em>e Paixões.</em></h1>
+            <p>Uma coleção inspirada no universo do cavalo, nos cenários do campo e nos gestos que guardam histórias. Obras criadas à mão pelas artistas Rosana e Raiane.</p>
+            <a class="link-arrow" href="#colecao">Conheça a coleção <span class="arrow">↘</span></a>
+          </div>
+          <div class="hero-art">
+            <div class="hero-image">
+              <img src="imagens/memorias-e-paixoes/01_mulher_e_cavalo.jpg" alt="Pintura da Coleção Memórias e Paixões, mulher junto a um cavalo">
+            </div>
+            <div class="hero-note"><strong>Coleção Memórias e Paixões</strong><span>Flora Estúdio Criativo · Rosana e Raiane</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Temas da coleção">
+      <div class="wrap marquee-inner">
+        <span>cavalos</span><span>✳</span><span>campo</span><span>✳</span><span>liberdade</span><span>✳</span><span>memórias</span><span>✳</span><span>paixões</span>
+      </div>
+    </div>
+
+    <section class="collection-intro" id="colecao">
+      <div class="wrap collection-intro-grid">
+        <div>
+          <div class="eyebrow">Sobre a coleção</div>
+          <h2>Uma conexão que abriu <em>novos caminhos.</em></h2>
+        </div>
+        <div class="collection-story">
+          <p>A Coleção Memórias e Paixões nasceu de uma conexão com o universo do cavalo — sua presença, sua força e a sensação de espaço e liberdade que ele carrega.</p>
+          <p>Depois de um período de bloqueio criativo, foi justamente esse tema que abriu caminho para voltar a pintar com mais leveza. O primeiro quadro, apresentado na Casa Cor, despertou a vontade de explorar outras cenas, gestos e elementos desse universo.</p>
+          <p>A partir daquela obra, novas imagens começaram a surgir: a relação entre o humano e o cavalo, os objetos do cotidiano, os cenários do campo e as pequenas memórias que fazem parte dessa cultura. Uma pintura puxou a outra, e o processo voltou a fluir.</p>
+          <div class="collection-quote">“O cavalo traz espaço e liberdade. E essa conexão também me trouxe liberdade para criar.”</div>
+          <p>O resultado é uma coleção que reúne diferentes olhares sobre esse mundo, com uma atmosfera que mistura força, afeto e lembrança.</p>
+          <p>Para as artistas, essa série também representa a descoberta de novas possibilidades e o prazer de deixar a criação seguir seu próprio caminho.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="obras">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Galeria</div><h2 class="serif">As obras<span style="color:var(--rust)">.</span></h2></div>
+          <p>De cenas marcadas pela presença dos cavalos a pequenos detalhes do cotidiano no campo, cada pintura revela um olhar próprio sobre esse universo.</p>
+        </div>
+        <div class="collection-artworks">
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/01_mulher_e_cavalo.jpg" alt="Pintura de uma mulher junto a um cavalo"></div>
+            <h3>Entre presença e afeto</h3><p>Relação entre humano e cavalo</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/02_selim.jpg" alt="Pintura de sela e equipamentos de montaria"></div>
+            <h3>Marcas do caminho</h3><p>Detalhes da montaria</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/03_cavaleiro.jpg" alt="Pintura de cavaleiro montado em um cavalo"></div>
+            <h3>O caminho do campo</h3><p>Cavalo e paisagem</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/04_cavalos.jpg" alt="Pintura de cavalos em uma paisagem rural"></div>
+            <h3>Liberdade no horizonte</h3><p>Cavalos · Paisagem rural</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/05_encontro.jpg" alt="Pintura de um encontro entre pessoa e cavalo"></div>
+            <h3>Um gesto de confiança</h3><p>Encontro · Afeto</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/06_dupla_campo.png" alt="Dupla de pinturas com trabalhador sentado na cerca e pássaro no campo"></div>
+            <h3>Memórias do campo — dupla</h3><p>Obra em duas partes</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/07_estribo.jpg" alt="Pintura em detalhe de um estribo e bota"></div>
+            <h3>O peso das lembranças</h3><p>Detalhe · Montaria</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/08_caneca.jpg" alt="Pintura de uma caneca esmaltada apoiada em uma cerca"></div>
+            <h3>Pausa no caminho</h3><p>Objetos do cotidiano</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/09_botas_e_calca.jpg" alt="Pintura de botas, cinto e calça jeans"></div>
+            <h3>Marcas de quem vive o campo</h3><p>Vestígios e objetos</p>
+          </article>
+          <article class="collection-art">
+            <div class="collection-art-image"><img src="imagens/memorias-e-paixoes/10_mao_na_cerca.jpg" alt="Pintura de uma mão apoiada em uma cerca de madeira"></div>
+            <h3>Um instante de descanso</h3><p>Gesto · Paisagem</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-pricing" id="reproducoes">
+      <div class="wrap pricing-grid">
+        <div>
+          <div class="eyebrow">Reproduções impressas</div>
+          <h2>Uma obra, diferentes tamanhos.</h2>
+          <p class="intro">Todas as obras desta coleção foram pintadas à mão pelas artistas Rosana e Raiane. A partir das pinturas originais, também é possível adquirir reproduções impressas para levar essa arte para a sua casa ou para um projeto.</p>
+          <p class="intro">As reproduções acompanham moldura e estão disponíveis em diferentes tamanhos, para você escolher a opção que melhor combina com o seu espaço.</p>
+          <div class="reproduction-note">Escolha a obra, encontre o tamanho ideal e fale com as artistas para consultar a sua reprodução.</div>
+        </div>
+        <div>
+          <div class="eyebrow">Tamanhos e valores à vista</div>
+          <table class="price-table" aria-label="Tamanhos e valores das reproduções">
+            <thead><tr><th>Tamanho</th><th>Valor à vista</th></tr></thead>
+            <tbody>
+              <tr><td>20 × 30 cm</td><td>R$ 337,00</td></tr>
+              <tr><td>50 × 70 cm</td><td>R$ 717,00</td></tr>
+              <tr><td>70 × 100 cm</td><td>R$ 1.097,00</td></tr>
+              <tr><td>90 × 120 cm</td><td>R$ 1.297,00</td></tr>
+            </tbody>
+          </table>
+          <p class="intro" style="margin-top:24px">Todas as reproduções acompanham uma moldura à sua escolha:</p>
+          <div class="frame-options">
+            <span class="frame-chip"><i class="frame-dot" style="background:#fff"></i> Branca</span>
+            <span class="frame-chip"><i class="frame-dot" style="background:#242424;border-color:#242424"></i> Preta</span>
+            <span class="frame-chip"><i class="frame-dot" style="background:#ad8157;border-color:#ad8157"></i> Amadeirada</span>
+          </div>
+          <p class="price-note">Os valores apresentados são para pagamento à vista. Parcelamento sob consulta, com acréscimo da taxa da maquininha. Consulte a Flora para confirmar disponibilidade e detalhes da reprodução escolhida.</p>
+          <a class="collection-contact" href="#contato">Consultar uma obra ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow">Contato sobre a coleção</div>
+          <h2>Qual obra combina <em>com o seu espaço?</em></h2>
+          <p class="contact-intro">Para consultar uma reprodução, escolher o tamanho ou conversar sobre as opções de moldura, entre em contato com as artistas.</p>
+        </div>
+        <div>
+          <div class="contact-links">
+            <a class="contact-link" href="https://wa.me/5548992084416" target="_blank" rel="noopener">
+              <span>WhatsApp<strong>Converse com as artistas</strong></span><span class="arrow">↗</span>
+            </a>
+            <a class="contact-link" href="https://www.instagram.com/flora_estudio/" target="_blank" rel="noopener">
+              <span>Instagram<strong>@flora_estudio</strong></span><span class="arrow">↗</span>
+            </a>
+            <a class="contact-link" href="https://www.tiktok.com/@flora_estudio" target="_blank" rel="noopener">
+              <span>TikTok<strong>@flora_estudio</strong></span><span class="arrow">↗</span>
+            </a>
+          </div>
+          <p class="social-note">Acompanhe a Flora nas redes sociais ou fale diretamente com as artistas pelo WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="#inicio">Flora Estúdio Criativo</a>
+      <span>Coleção Memórias e Paixões</span>
+      <a class="back-top" href="#inicio">Voltar ao topo ↑</a>
+      <span>© <span id="year"></span> Flora Estúdio Criativo</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
